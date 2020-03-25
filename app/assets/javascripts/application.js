@@ -23,6 +23,47 @@ $(document).on('turbolinks:load', function() {
 
   $('.ui.dropdown').dropdown();
 
+  $('.clickit').click(function(){
+  	$('.ui.modal').modal('show');
+  });
+
+// var textFieldVal = $('input[name="getId"]').val();
+
+
+
+  
+ 
+
 });
+
+$(document).ready(function(){
+	var username = $('.username').val();
+var password = $('.password').val();
+
+var credentials = {
+	username: username,
+	password: password
+};
+
+ $('.submit-signup').click(function(){
+	alert(username);
+ 	Rails.ajax({
+ 		url: "/signup",
+  		type: "post",
+  		data: "username=" + "ashmit" ,
+  		success: function(data) {
+  			alert("username");
+  		},
+  		error: function(data) {
+  			alert("There was some error in sending the data");
+  		}
+ 	});
+
+  
+ });
+})
+
+
+
 
 
