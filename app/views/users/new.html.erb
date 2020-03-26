@@ -1,0 +1,31 @@
+<h2 class="ui center aligned large header">Welcome to MessageMe- a complete Chatapp </h2>
+<h4 class="ui center aligned small icon header">
+  <i class="circular orange inverted power icon"></i>
+
+  <h4 class="ui center aligned medium header">Signup to MessageMe</h4>
+
+  <div class="ui orange segment">
+
+  <%= form_for(@user, :html => {class: "ui large fluid  raised form"}) do |f| %>
+
+  <div class="field">
+   
+    <%= f.label :username %>
+    
+    <%= f.text_field :username, type: "text", placeholder: "Username" %>
+  </div>
+  <div class="field">
+    <%= f.label :password %>
+    <%= f.password_field :password, placeholder: "Password" %>
+  </div>
+  <div class="field">
+    <div class="ui checkbox">
+      <input type="checkbox" tabindex="0" class="hidden">
+      <label>I agree to the Terms and Conditions</label>
+    </div>
+ </div>
+
+  <%= f.submit "Signup", class: "ui orange button" %>
+
+  <% end %>
+</div>

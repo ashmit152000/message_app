@@ -4,14 +4,20 @@ class SessionsController < ApplicationController
 
 
   def ajaxreply
-    puts "************************************"
-    puts params[:username]
-    puts "************************************"
+    
 
-    user = User.find_by(username: params[:username])
-    puts "************************************"
-    puts user.id
-    puts "************************************"
+    user = User.new(username: params[:username], password: params[:password])
+    user.save
+
+    if user.save
+      session[:user_id] = user.id
+      puts session[:user_id]
+      redirect_to root_path
+    else
+      flash.now[:danger] = "Username already taken"
+      render 'new'
+
+    end
 
   end
 
@@ -35,4 +41,13 @@ class SessionsController < ApplicationController
   	end
 
   end
+
+
+def destroy
+  session[:user_id] = nil 
+  flash[:success] = "You are successfully logged out. Come back soon :)"
+  redirect_to login_path
 end
+end
+
+

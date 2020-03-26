@@ -31,14 +31,25 @@ $(document).on('turbolinks:load', function() {
 
 
 
-  
+  $('.ui.checkbox').checkbox();
  
 
 });
 
 $(document).ready(function(){
-	var username = $('.username').val();
-var password = $('.password').val();
+
+  var username;
+  var password;
+
+  $('.username').change(function(){
+       username = $('.username').val();
+  })
+
+  $('.password').change(function(){
+      password = $('.password').val();
+  })
+	
+
 
 var credentials = {
 	username: username,
@@ -46,16 +57,16 @@ var credentials = {
 };
 
  $('.submit-signup').click(function(){
-	alert(username);
+	
  	Rails.ajax({
  		url: "/signup",
   		type: "post",
-  		data: "username=" + "ashmit" ,
+  		data: "username=" + username + "&password=" + password,
   		success: function(data) {
-  			alert("username");
+  			
   		},
   		error: function(data) {
-  			alert("There was some error in sending the data");
+  			
   		}
  	});
 

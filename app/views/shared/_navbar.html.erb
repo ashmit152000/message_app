@@ -11,16 +11,21 @@
       </a>
       <div class="right menu">
         <div class="ui dropdown item">
-          Account <i class="dropdown icon"></i>
+          <i class="user icon"></i>
+          Account   <i class="dropdown icon"></i>
           <div class="menu">
-            <a class="item">Logout</a>
-            <a class="item">Login</a>
-            <a class="item">Signup</a>
+            <% if logged_in? %>
+            <%= link_to "My Profile", user_path(current_user), class:"item"%>
+            <%= link_to "Edit Account", edit_user_path(current_user), class: "item" %>
+            <%= link_to "Logout", logout_path, method: :delete, data:{confirm: "Are you sure"}, class: "item" %>
+
+            <% else %>
+            <%= link_to "Login", login_path, class: "item" %>
+            <%= link_to "Signup", new_user_path, class: "item" %>
+            <% end %>
           </div>
         </div>
-        <div class="item">
-            <div class="ui primary button">Sign Up</div>
-        </div>
+        
     </div>
   </div>
 </div>
