@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
       puts session[:user_id]
       redirect_to root_path
     else
-      flash.now[:danger] = "Username already taken"
+      flash.now[:error] = "Username already taken"
       render 'new'
 
     end
@@ -35,8 +35,9 @@ class SessionsController < ApplicationController
   		flash[:success] = "You are successfully logged in"
   		
   	else
+      flash.now[:error] = "Please check your username or password"
   		render 'new'
-  		flash.now[:danger] = "Please check your username or password"
+  		
 
   	end
 

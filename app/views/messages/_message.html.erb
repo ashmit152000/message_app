@@ -1,0 +1,10 @@
+<div class="event">
+		    <div class="content">
+		      <div class="summary">
+		      
+		         <a> <%= User.find_by(id: message.user.id).username.capitalize %> </a>: <%= message.body %>
+		        
+		      </div>
+
+		    </div>
+		  </div>

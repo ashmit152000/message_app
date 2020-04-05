@@ -55,7 +55,7 @@ end
 
 def current_user_only
 	if @user != current_user
-		flash[:danger] = "You can  edit or delete only your profile"
+		flash[:warning] = "You can  edit or delete only your profile"
         redirect_to root_path
 	
 

@@ -1,3 +1,17 @@
-<h2 class="ui center aligned big header"> Welcome to <%= @user.username %>'s page</h2>
 
-<p class="ui center aligned big header" >Joined Message me : <%= time_ago_in_words(@user.created_at)  %> ago</p>
+
+<div align="center" class="container">
+
+<div class="ui orange raised card one column center aligned">
+  <a class="image" href="#">
+    <img src="https://semantic-ui.com/images/avatar2/large/matthew.png">
+  </a>
+  <div class="content">
+    <a class="header" href="#"><%= @user.username %>'s page</a>
+    <div class="meta">
+      <a>Joined Message me : <%= time_ago_in_words(@user.created_at)  %> ago</a>
+    </div>
+  </div>
+</div>
+
+</div>

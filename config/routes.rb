@@ -10,4 +10,7 @@ Rails.application.routes.draw do
   post 'signup', to: "sessions#ajaxreply"
   delete 'logout', to: 'sessions#destroy'
   resources :users
+  post 'messages', to: "messages#create"
+
+  mount ActionCable.server, at: '/cable'
 end
